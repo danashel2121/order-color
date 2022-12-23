@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This file is part of the Nivys_OrderStatusColor package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Nivys_OrderStatusColor
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2022 Nivys, Ltd. (https://nivys.com/)
+ * @author    Nivys <info@nivys.com>
+ * @license   MIT
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Nivys_OrderStatusColor">
+        <sequence>
+            <module name="Magento_Sales"/>
+        </sequence>
+    </module>
+</config>
