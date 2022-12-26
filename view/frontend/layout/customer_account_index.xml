@@ -1,10 +1,18 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Hyvä Themes - https://hyva.io
- * Copyright © Hyvä Themes 2020-present. All rights reserved.
- * This product is licensed per Magento install
- * See https://hyva.io/license
+ * This file is part of the Nivys OrderStatusColor package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this package
+ * to newer versions in the future.
+ *
+ * @author   Nivys <info.nivys@gmail.com>
+ * @license  GNU General Public License ("GPL") v3.0
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -17,6 +25,8 @@
                 </action>
                 <arguments>
                     <argument name="status_color_view_model" xsi:type="object">Nivys\OrderStatusColor\ViewModel\StatusColorViewModel</argument>
+                    <argument name="post_helper_view_model" xsi:type="object">Nivys\OrderStatusColor\ViewModel\PostHelperViewModel</argument>
+                    <argument name="reorder_view_model" xsi:type="object">Nivys\OrderStatusColor\ViewModel\ReorderViewModel</argument>
                 </arguments>
             </referenceBlock>
         </referenceContainer>

@@ -18,29 +18,30 @@ declare(strict_types=1);
 
 namespace Nivys\OrderStatusColor\ViewModel;
 
+use Magento\Framework\Data\Helper\PostHelper;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
-use Nivys\OrderStatusColor\Model\StatusColor;
 
-class StatusColorViewModel implements ArgumentInterface
+class PostHelperViewModel implements ArgumentInterface
 {
-    /** @var StatusColor */
-    protected StatusColor $statusColor;
+    /** @var PostHelper */
+    protected PostHelper $postHelper;
 
     /**
-     * @param StatusColor $statusColor
+     * @param PostHelper $postHelper
      */
     public function __construct(
-        StatusColor $statusColor
+        PostHelper $postHelper
     ) {
-        $this->statusColor = $statusColor;
+        $this->postHelper = $postHelper;
     }
 
     /**
-     * @param string $statusCode
+     * @param string $url
+     * @param array $data
      * @return string
      */
-    public function getColor(string $statusCode): string
+    public function getPostData(string $url, array $data = []): string
     {
-        return $this->statusColor->getColor($statusCode);
+        return $this->postHelper->getPostData($url, $data);
     }
 }

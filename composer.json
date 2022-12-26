@@ -1,22 +1,26 @@
 {
-    "name": "nivys/module-orderstatuscolor",
-    "description": "xcva",
-    "type": "magento2-module",
-    "license": "OSL-3.0",
-    "authors": [
-        {
-            "name": "Mage2Gen",
-            "email": "info@mage2gen.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {},
-    "autoload": {
-        "files": [
-            "registration.php"
-        ],
-        "psr-4": {
-            "Nivys\\OrderStatusColor\\": ""
-        }
+  "name": "nivys/order-status-color",
+  "description": "Magento 2 module to colorify order statuses",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+    "OSL-3.0"
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/nivys-di/magento2-order-status-color"
     }
+  ],
+  "require": {
+    "magento/framework": "103.0.*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Nivys\\OrderStatusColor\\": ""
+    }
+  }
 }

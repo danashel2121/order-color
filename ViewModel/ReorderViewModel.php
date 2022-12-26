@@ -19,28 +19,36 @@ declare(strict_types=1);
 namespace Nivys\OrderStatusColor\ViewModel;
 
 use Magento\Framework\View\Element\Block\ArgumentInterface;
-use Nivys\OrderStatusColor\Model\StatusColor;
+use Magento\Sales\Helper\Reorder;
 
-class StatusColorViewModel implements ArgumentInterface
+class ReorderViewModel implements ArgumentInterface
 {
-    /** @var StatusColor */
-    protected StatusColor $statusColor;
+    /** @var Reorder */
+    protected Reorder $reorder;
 
     /**
-     * @param StatusColor $statusColor
+     * @param Reorder $reorder
      */
     public function __construct(
-        StatusColor $statusColor
+        Reorder $reorder
     ) {
-        $this->statusColor = $statusColor;
+        $this->reorder = $reorder;
     }
 
     /**
-     * @param string $statusCode
-     * @return string
+     * @return bool
      */
-    public function getColor(string $statusCode): string
+    public function isAllow(): bool
     {
-        return $this->statusColor->getColor($statusCode);
+        return $this->reorder->isAllow();
+    }
+
+    /**
+     * @param int $orderId
+     * @return bool
+     */
+    public function canReorder(int $orderId): bool
+    {
+        return $this->reorder->canReorder($orderId);
     }
 }

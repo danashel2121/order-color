@@ -1,34 +1,44 @@
 <?php
 /**
- * Hyvä Themes - https://hyva.io
- * Copyright © Hyvä Themes 2020-present. All rights reserved.
- * This product is licensed per Magento install
- * See https://hyva.io/license
+ * This file is part of the Nivys OrderStatusColor package.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this package
+ * to newer versions in the future.
+ *
+ * @author   Nivys <info.nivys@gmail.com>
+ * @license  GNU General Public License ("GPL") v3.0
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 use Hyva\Theme\Model\ViewModelRegistry;
 use Hyva\Theme\ViewModel\HeroiconsOutline;
-use Magento\Framework\Data\Helper\PostHelper;
-use Magento\Sales\Helper\Reorder;
 use Magento\Sales\Block\Order\Recent;
 use Nivys\OrderStatusColor\Model\StatusColor;
+use Nivys\OrderStatusColor\ViewModel\PostHelperViewModel;
+use Nivys\OrderStatusColor\ViewModel\ReorderViewModel;
 use Nivys\OrderStatusColor\ViewModel\StatusColorViewModel;
-
-// phpcs:disable Magento2.Templates.ThisInTemplate.FoundHelper
 
 /** @var Recent $block */
 /** @var Escaper $escaper */
 /** @var ViewModelRegistry $viewModels */
-
 /** @var HeroiconsOutline $heroicons */
-$heroicons = $viewModels->require(HeroiconsOutline::class);
 /** @var StatusColorViewModel $statusColor */
+/** @var ReorderViewModel $reorder */
+/** @var PostHelperViewModel $postHelper */
+
+$heroicons = $viewModels->require(HeroiconsOutline::class);
 $statusColor = $viewModels->require(StatusColorViewModel::class);
+$reorder = $viewModels->require(ReorderViewModel::class);
+$postHelper = $viewModels->require(PostHelperViewModel::class);
 ?>
 <div class="block block-dashboard-orders card mt-4">
     <?php
     $orders = $block->getOrders();
-    $count  = count($orders);
+    $count = count($orders);
     ?>
     <div class="block-title order my-4 flex justify-between items-center">
         <span class="text-2xl block"><?= $escaper->escapeHtml(__('Recent Orders')) ?></span>
@@ -60,7 +70,7 @@ $statusColor = $viewModels->require(StatusColorViewModel::class);
                 </div>
                 <div class="text-sm text-secondary p-2 text-center">
                     <?= $escaper->escapeHtml(__('View')) ?>
-                    <?php if ($this->helper(Reorder::class)->isAllow()): ?>
+                    <?php if ($reorder->isAllow()): ?>
                         / <?= $escaper->escapeHtml(__('Reorder')) ?>
                     <?php endif; ?>
                 </div>
@@ -89,7 +99,8 @@ $statusColor = $viewModels->require(StatusColorViewModel::class);
                     <div class="p-2 hidden lg:flex items-center <?= $i % 2 === 0 ? '' : ' bg-container-darker' ?>">
                         <?php $color = $statusColor->getColor($order->getStatus()) ?>
                         <?php if ($color !== StatusColor::DEFAULT_COLOR): ?>
-                            <i class="h-3 w-3 rounded-full mr-1" style="background: <?= $escaper->escapeHtmlAttr($color) ?>"></i>
+                            <i class="h-3 w-3 rounded-full mr-1"
+                               style="background: <?= $escaper->escapeHtmlAttr($color) ?>"></i>
                         <?php endif; ?>
                         <?= $escaper->escapeHtml($order->getStatusLabel()) ?>
                     </div>
@@ -99,11 +110,9 @@ $statusColor = $viewModels->require(StatusColorViewModel::class);
                            title="<?= $escaper->escapeHtmlAttr(__('View Order')) ?>">
                             <?= $heroicons->eyeHtml() ?>
                         </a>
-                        <?php if ($this->helper(Reorder::class)->canReorder($order->getEntityId())): ?>
+                        <?php if ($reorder->canReorder($order->getEntityId())): ?>
                             <?php $formData = json_decode(
-                                $this->helper(PostHelper::class)->getPostData(
-                                    $block->getReorderUrl($order)
-                                ),
+                                $postHelper->getPostData($block->getReorderUrl($order)),
                                 true
                             ) ?>
                             <form action="<?= $escaper->escapeUrl($formData['action']) ?>"
