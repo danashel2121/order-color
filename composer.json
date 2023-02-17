@@ -6,12 +6,6 @@
   "license": [
     "OSL-3.0"
   ],
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/nivys-di/magento2-order-status-color"
-    }
-  ],
   "require": {
     "magento/framework": "103.0.*"
   },
