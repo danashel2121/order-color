@@ -23,6 +23,8 @@ use Magento\Framework\View\Element\AbstractBlock;
 class ColorRenderer extends AbstractBlock
 {
     /**
+     * Adding javascript for color picker jQuery
+     *
      * @return string
      */
     public function _toHtml(): string

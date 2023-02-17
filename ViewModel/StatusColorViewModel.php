@@ -36,6 +36,8 @@ class StatusColorViewModel implements ArgumentInterface
     }
 
     /**
+     * Get color based on status code
+     *
      * @param string $statusCode
      * @return string
      */

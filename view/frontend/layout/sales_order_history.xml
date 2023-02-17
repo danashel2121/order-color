@@ -21,7 +21,7 @@
     <body>
         <referenceContainer name="content">
             <referenceBlock name="sales.order.history">
-                <action method="setTemplate" ifconfig="sales/order_status_color/enabled_my_account_history">
+                <action method="setTemplate" ifconfig="order_status_color/general/enabled_my_account_history">
                     <argument name="setTemplate" xsi:type="string">Nivys_OrderStatusColor::order/history.phtml</argument>
                 </action>
                 <arguments>

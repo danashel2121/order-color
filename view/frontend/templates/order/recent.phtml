@@ -80,7 +80,9 @@ $postHelper = $block->getPostHelperViewModel();
                             <td data-th="<?= $escaper->escapeHtml(__('Status')) ?>" class="col status">
                                 <?php $color = $statusColor->getColor($_order->getStatus()) ?>
                                 <?php if ($color !== StatusColor::DEFAULT_COLOR): ?>
-                                    <i style="display: inline-block; height: 10px; width: 10px; border-radius: 100%; margin-right: 4px; background: <?= $escaper->escapeHtmlAttr($color) ?>"></i>
+                                    <i style="display: inline-block; height: 10px; width: 10px; border-radius: 100%;
+                                              margin-right: 4px;
+                                              background: <?= $escaper->escapeHtmlAttr($color) ?>"></i>
                                 <?php endif; ?>
                                 <?= $escaper->escapeHtml($_order->getStatusLabel()) ?>
                             </td>
@@ -90,7 +92,8 @@ $postHelper = $block->getPostHelperViewModel();
                                 </a>
                                 <?php if ($reorder->canReorder($_order->getEntityId())): ?>
                                     <a href="#" class="action order"
-                                       data-post='<?= /* @noEscape */ $postHelper->getPostData($block->getReorderUrl($_order)) ?>'>
+                                       data-post='<?= /* @noEscape */
+                                        $postHelper->getPostData($block->getReorderUrl($_order)) ?>'>
                                         <span><?= $escaper->escapeHtml(__('Reorder')) ?></span>
                                     </a>
                                 <?php endif ?>

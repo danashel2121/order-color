@@ -24,9 +24,10 @@ use Magento\Store\Model\ScopeInterface;
 
 class StatusColor
 {
-    public const STATUS_COLOR_CONFIG_PATH = 'sales/order_status_color/colors';
+    public const STATUS_COLOR_CONFIG_PATH = 'order_status_color/general/colors';
     public const DEFAULT_COLOR = 'transparent';
 
+    /** @var string|null */
     private ?string $colorConfigs = null;
 
     /** @var ScopeConfigInterface */
@@ -48,6 +49,8 @@ class StatusColor
     }
 
     /**
+     * Get color based on status code
+     *
      * @param string $statusCode
      * @return string
      */
@@ -71,6 +74,8 @@ class StatusColor
     }
 
     /**
+     * Get cached color config
+     *
      * @return ?string
      */
     public function getColorConfigs(): ?string

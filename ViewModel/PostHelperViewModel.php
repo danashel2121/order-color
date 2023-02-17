@@ -36,6 +36,8 @@ class PostHelperViewModel implements ArgumentInterface
     }
 
     /**
+     * Post helper to get post data
+     *
      * @param string $url
      * @param array $data
      * @return string

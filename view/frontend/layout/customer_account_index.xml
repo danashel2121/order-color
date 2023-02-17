@@ -20,7 +20,7 @@
     <body>
         <referenceContainer name="content">
             <referenceBlock name="customer_account_dashboard_top">
-                <action method="setTemplate" ifconfig="sales/order_status_color/enabled_my_account_recent">
+                <action method="setTemplate" ifconfig="order_status_color/general/enabled_my_account_recent">
                     <argument name="setTemplate" xsi:type="string">Nivys_OrderStatusColor::order/recent.phtml</argument>
                 </action>
                 <arguments>

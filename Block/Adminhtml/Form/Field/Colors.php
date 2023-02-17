@@ -73,6 +73,8 @@ class Colors extends AbstractFieldArray
     }
 
     /**
+     * Get status renderer block
+     *
      * @return StatusColumn
      * @throws LocalizedException
      */
@@ -90,6 +92,8 @@ class Colors extends AbstractFieldArray
     }
 
     /**
+     * Get color renderer block
+     *
      * @return ColorRenderer&BlockInterface
      * @throws LocalizedException
      */

@@ -78,6 +78,8 @@ class StatusColumn extends Select
     }
 
     /**
+     * Get colors source array
+     *
      * @return array
      */
     private function getSourceOptions(): array

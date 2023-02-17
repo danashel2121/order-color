@@ -36,6 +36,8 @@ class ReorderViewModel implements ArgumentInterface
     }
 
     /**
+     * Is allow reorder
+     *
      * @return bool
      */
     public function isAllow(): bool
@@ -44,6 +46,8 @@ class ReorderViewModel implements ArgumentInterface
     }
 
     /**
+     * Can reorder
+     *
      * @param int $orderId
      * @return bool
      */
